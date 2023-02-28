@@ -8,16 +8,49 @@
 
 require "faker"
 
+Motorcycle.destroy_all
+User.destroy_all
+
 User.create(email: 'test@gmail.com', password: "1234567", password_confirmation: "1234567")
 
-30.times do
+
+# 30.times do
+#   Motorcycle.create!(
+#     title: Faker::Vehicle.version,
+#     user: User.all.first,
+#     capacity: Faker::Number.number(digits: 3),
+#     category: Faker::Vehicle.fuel_type,
+#     description: Faker::Lorem.paragraph(sentence_count: 8),
+#     moto_picture_url: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Norton_Motorcycle.jpg",
+#     price: Faker::Number.between(from: 59, to: 250)
+#   )
+# end
+
+# "----"
+
+
+# def api_key
+#   ENV["API_KEY"]
+# end
+
+puts "Getting Motorcycles Data"
+
+def motorcycles_dataset
+  motorcycles_db = []
+  motorcycles_dataset = RestClient.get('https://api.api-ninjas.com/v1/motorcycles?make=kawasaki&model=ninja', headers={ 'X-Api-Key': 'UNVh/gYhvoXLpgbN94xaCQ==np4Bo2M2Y7ghXjde' })
+end
+
+motorcycles_array = JSON.parse(motorcycles_dataset)
+
+motorcycles_array.each do |motorcycle|
   Motorcycle.create!(
-    title: Faker::Vehicle.version,
+    title: motorcycle["model"],
     user: User.all.first,
-    capacity: Faker::Number.number(digits: 3),
-    category: Faker::Vehicle.fuel_type,
+    capacity: motorcycle["displacement"].to_i,
+    category: motorcycle["type"],
     description: Faker::Lorem.paragraph(sentence_count: 8),
-    moto_picture_url: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Norton_Motorcycle.jpg",
-    price: Faker::Number.between(from: 59, to: 250)
+    moto_picture_url: Faker::Vehicle.fuel_type,
+    price: Faker::Number.between(from: 59, to: 250),
+    available_dates: Faker::Date.in_date_period
   )
 end
