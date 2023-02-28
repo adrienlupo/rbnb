@@ -1,7 +1,7 @@
 class MotorcyclesController < ApplicationController
-  before_action :set_motorcycle, only: [:show]
+  before_action :set_motorcycle, only: %i[show destroy]
 
-  def index
+  def home
     @motorcycles = Motorcycle.all
   end
 
@@ -9,6 +9,7 @@ class MotorcyclesController < ApplicationController
     @motorcycle = Motorcycle.new
   end
 
+edit_view
   def create
     @motorcycle = Motorcycle.new(motorcycle_params)
     @motorcycle.user = current_user
@@ -25,7 +26,10 @@ class MotorcyclesController < ApplicationController
 
   def show; end
 
-  def home; end
+  def destroy
+    @motorcycle.destroy
+    redirect_to root_path
+  end
 
   private
 
