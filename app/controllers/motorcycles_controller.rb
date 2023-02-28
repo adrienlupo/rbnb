@@ -5,6 +5,10 @@ class MotorcyclesController < ApplicationController
     @motorcycles = Motorcycle.all
   end
 
+  def new
+    @motorcycle = Motorcycle.new
+  end
+
   def show; end
 
   def home; end
