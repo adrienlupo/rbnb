@@ -9,7 +9,6 @@ class MotorcyclesController < ApplicationController
     @motorcycle = Motorcycle.new
   end
 
-edit_view
   def create
     @motorcycle = Motorcycle.new(motorcycle_params)
     @motorcycle.user = current_user
@@ -38,6 +37,6 @@ edit_view
   end
 
   def motorcycle_params
-    params.require(:motorcycle).permit(:title, :description, :category, :capacity, :price)
+    params.require(:motorcycle).permit(:title, :description, :category, :capacity, :price, :photo)
   end
 end
