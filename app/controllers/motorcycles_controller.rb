@@ -1,5 +1,5 @@
 class MotorcyclesController < ApplicationController
-  before_action :set_motorcycle, only: [:show]
+  before_action :set_motorcycle, only: %i[show destroy]
 
   def index
     @motorcycles = Motorcycle.all
@@ -9,9 +9,15 @@ class MotorcyclesController < ApplicationController
     @motorcycle = Motorcycle.new
   end
 
-  def show; end
+  def show
+  end
 
   def home; end
+
+  def destroy
+    @motorcycle.destroy
+    redirect_to root_path
+  end
 
   private
 
