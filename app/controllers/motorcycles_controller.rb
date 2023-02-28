@@ -1,7 +1,7 @@
 class MotorcyclesController < ApplicationController
   before_action :set_motorcycle, only: %i[show destroy]
 
-  def index
+  def home
     @motorcycles = Motorcycle.all
   end
 
@@ -11,8 +11,6 @@ class MotorcyclesController < ApplicationController
 
   def show
   end
-
-  def home; end
 
   def destroy
     @motorcycle.destroy
