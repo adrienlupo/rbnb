@@ -7,6 +7,8 @@ gem "faker"
 
 gem "rest-client"
 
+gem "cloudinary"
+
 gem "dotenv-rails", groups: [:development, :test]
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

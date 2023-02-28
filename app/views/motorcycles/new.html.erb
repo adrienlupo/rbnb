@@ -9,6 +9,7 @@
           <%= f.input :category, collection: ["Cross", "Enduro", "Trail", "Circuit", "Route"], selected: "Cross" %>
           <%= f.input :capacity, collection: ["125cm³", "250cm³", "500cm³", "600cm³", "1000cm³", "Autres"], selected: "125cm³" %>
           <%= f.input :price, as: :currency %>
+          <%= f.input :photo, as: :file %>
           <%= f.submit class: 'btn btn-primary' %>
         <% end %>
           <div>
