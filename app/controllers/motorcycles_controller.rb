@@ -9,8 +9,22 @@ class MotorcyclesController < ApplicationController
     @motorcycle = Motorcycle.new
   end
 
-  def show
+edit_view
+  def create
+    @motorcycle = Motorcycle.new(motorcycle_params)
+    @motorcycle.user = current_user
+    respond_to do |format|
+      if @motorcycle.save
+        format.html { redirect_to motorcycle_path(@motorcycle), notice: "Motorcycle was successfully created." }
+        format.json { render :show, status: :created, location: @motorcycle }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @motorcycle.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+  def show; end
 
   def destroy
     @motorcycle.destroy
@@ -21,5 +35,9 @@ class MotorcyclesController < ApplicationController
 
   def set_motorcycle
     @motorcycle = Motorcycle.find(params[:id])
+  end
+
+  def motorcycle_params
+    params.require(:motorcycle).permit(:title, :description, :category, :capacity, :price)
   end
 end
