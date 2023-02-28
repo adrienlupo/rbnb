@@ -1,22 +1,15 @@
 class MotorcyclesController < ApplicationController
+  before_action :set_motorcycle, only: [:show]
+  
   def index
+    @motorcycles = Motorcycle.all
   end
 
-  def show
-  end
+  def show; end
 
-  def new
-  end
+  private
 
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+  def set_motorcycle
+    @motorcycle = Motorcycle.find(params[:id])
   end
 end
