@@ -25,3 +25,12 @@
     </ul>
 
 </div>
+
+<div>
+
+    <%= link_to "Edit ✍🏼", edit_motorcycle_path(@motorcycle) %><br>
+    <%= link_to "Retourner au Menu 🔙", root_path %><br>
+
+    <%= link_to "Delete this motorcycle 🗑️", motorcycle_path(@motorcycle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this motorcycle?" } %>
+
+</div>
