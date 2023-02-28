@@ -1,1 +1,7 @@
 <h1>home</h1>
+
+<% @motorcycles.each do |motorcycle| %>
+
+<%= link_to motorcycle.title, motorcycle_path(motorcycle) %>
+
+<% end %>
