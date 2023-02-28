@@ -1,9 +1,27 @@
 <div>
 
-  <% @motorcycles.each do |motorcycle| %>
     <h1>
-      <%= motorcycle.title %>
-    </h1>
-  <% end %>
+      <%= @motorcycle.title %>
+    </h1><br>
+
+    <ul>
+
+      <li>
+        <%= @motorcycle.capacity %>
+      </li>
+      <li>
+        <%= @motorcycle.category %>
+      </li>
+      <li>
+        <%= @motorcycle.description %>
+      </li>
+      <li>
+        <%= @motorcycle.moto_picture_url %>
+      </li>
+      <li>
+        <%= @motorcycle.price %>
+      </li>
+
+    </ul>
 
 </div>
