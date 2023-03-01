@@ -50,7 +50,8 @@ motorcycles_array.each do |motorcycle|
     category: motorcycle["type"],
     description: Faker::Lorem.paragraph(sentence_count: 8),
     price: Faker::Number.between(from: 59, to: 250),
-    available_dates: Faker::Date.in_date_period
+    available_dates: Faker::Date.in_date_period,
+    address: "21 Rue Haxo, Marseille"
   )
   moto.photo.attach(io: File.open('/Users/adrienlupo/code/adrienlupo/rbnb/db/seed_pictures/pic1.jpg'), filename: 'pic1.jpg', content_type: 'image/jpg')
 end
