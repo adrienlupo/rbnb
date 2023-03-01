@@ -41,18 +41,20 @@
 
     <div class="main-container">
 
-      <div class="cards">
-        <% @motorcycles.each do |motorcycle| %>
-          <div class="card">
 
-            <img src="https://res.cloudinary.com/degkqrdcu/image/upload/v1677668112/development/58kxjp1g2eparrc81xhdgiwmk48o.jpg">
-            <h1><%= motorcycle.title %></h1>
-            <p>Catégorie: <%= motorcycle.category %></p>
-            <p>Cylindrée<%= motorcycle.capacity %></p>
-            <p>Prix à la journée: <%= motorcycle.price %> €</p>
-          </div>
-        <%end%>
-      </div>
+        <div class="cards">
+          <% @motorcycles.each do |motorcycle| %>
+            <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
+              <div class="card" style="width: 350px;">
+                <img src="https://res.cloudinary.com/degkqrdcu/image/upload/v1677668112/development/58kxjp1g2eparrc81xhdgiwmk48o.jpg">
+                <h1><%= motorcycle.title %></h1>
+                <p>Catégorie: <%= motorcycle.category %></p>
+                <p>Cylindrée<%= motorcycle.capacity %></p>
+                <p>Prix à la journée: <%= motorcycle.price %> €</p>
+              </div>
+            <%end%>
+          <% end %>
+        </div>
 
       <div id="map" style="width: 50%">
               <img id="map" src='https://api.mapbox.com/styles/v1/rbuscot01/clepm7fh7000z01s5y3sz648s.html?title=copy&access_token=pk.eyJ1IjoicmJ1c2NvdDAxIiwiYSI6ImNsZWhhMnRnMDBoNTgzeG1jNzFtaTQ0MDUifQ.xS72JMJpzO2eEOX5GiznWA&zoomwheel=true&fresh=true#11/40.73/-74'>
