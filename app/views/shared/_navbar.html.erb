@@ -2,7 +2,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="navbar-motorcycle">
 
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://scontent.fcdg4-1.fna.fbcdn.net/v/t39.30808-6/278092064_4732246800220739_8008994963150531626_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=19026a&_nc_ohc=Zn_RCfg8NOsAX9DxW56&tn=2hMHNvp6PBJiPTYt&_nc_ht=scontent.fcdg4-1.fna&oh=00_AfCI4JTWz1grSt8CbZ7kx96s2-4RmsUF2J67EZj33CQa2A&oe=64023E81" %>
     <% end %>
 
@@ -22,7 +22,7 @@
     </div>
     <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "proposer ma moto", new_user_session_path, class: "nav-link" %>
+        <%= link_to "proposer ma moto", new_motorcycle_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
           <li class="nav-item dropdown">

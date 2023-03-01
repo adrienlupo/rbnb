@@ -4,7 +4,7 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, class: "simple")  do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
-      <%= f.input :first_name,
+    <%= f.input :first_name,
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "first_name" } %>
