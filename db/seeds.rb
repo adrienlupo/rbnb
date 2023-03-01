@@ -43,14 +43,14 @@ end
 motorcycles_array = JSON.parse(motorcycles_dataset)
 
 motorcycles_array.each do |motorcycle|
-  Motorcycle.create!(
-    title: motorcycle["model"],
+  moto = Motorcycle.create!(
+    title: "#{motorcycle['make']} - #{motorcycle['model']}",
     user: User.all.first,
     capacity: motorcycle["displacement"].to_i,
     category: motorcycle["type"],
     description: Faker::Lorem.paragraph(sentence_count: 8),
-    moto_picture_url: Faker::Vehicle.fuel_type,
     price: Faker::Number.between(from: 59, to: 250),
     available_dates: Faker::Date.in_date_period
   )
+  moto.photo.attach(io: File.open('/Users/adrienlupo/code/adrienlupo/rbnb/db/seed_pictures/pic1.jpg'), filename: 'pic1.jpg', content_type: 'image/jpg')
 end
