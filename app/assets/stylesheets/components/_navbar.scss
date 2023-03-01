@@ -1,12 +1,41 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  background: #bfc8cd;
+  display: flex-start;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+  flex-grow: (50);
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  border-radius: 5px;
+  width: 60px;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: row ;
+  align-items: center;
+  border-radius: 5px;
+  p {
+    margin-bottom: 0px;
+  }
+  input {
+   border-radius: 10px;
+  }
+}
+
+.navbar-motorcycle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-item {
+  background-color:#bfc8cd;
+  border-radius: 5px;
+  list-style: none;
 }

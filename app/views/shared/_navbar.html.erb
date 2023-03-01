@@ -1,22 +1,30 @@
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="navbar-motorcycle">
+
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "https://scontent.fcdg4-1.fna.fbcdn.net/v/t39.30808-6/278092064_4732246800220739_8008994963150531626_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=19026a&_nc_ohc=Zn_RCfg8NOsAX9DxW56&tn=2hMHNvp6PBJiPTYt&_nc_ht=scontent.fcdg4-1.fna&oh=00_AfCI4JTWz1grSt8CbZ7kx96s2-4RmsUF2J67EZj33CQa2A&oe=64023E81" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+    <div>
+        <ul class="navbar-nav me-auto">
+      <li class="navbar-list">
+        <p>Lieu</p>
+        <input type="text" name="lieu" id="lieu" placeholder="Marseille">
+        <p>datebegining</p>
+        <input type="date">
+        <p>dateend</p>
+        <input type="date">
+        <li class="nav-item">
+          <%= link_to "GO", "sign", class: "nav-link" %>
+        </li>
+    </ul>
+    </div>
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "proposer ma moto", new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -25,12 +33,15 @@
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "proposer ma moto", new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+    <% end %>
+
   </div>
 </div>
