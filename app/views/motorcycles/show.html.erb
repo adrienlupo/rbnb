@@ -1,39 +1,39 @@
-<div>
+  <div class='container'>
 
-    <h1>
-      <%= @motorcycle.title %>
-    </h1><br>
 
-    <ul>
+      <div><%= cl_image_tag @motorcycle.photo.key, height: 300, width: 400, crop: :fill %></div>
 
-      <li>
-        <%= @motorcycle.capacity %>
-      </li>
-      <li>
-        <%= @motorcycle.category %>
-      </li>
-      <li>
-        <%= @motorcycle.description %>
-      </li>
-      <li>
-        <%= @motorcycle.moto_picture_url %>
-      </li>
-      <li>
-        <%= @motorcycle.price %>
-      </li>
-      <li>
-        <%= cl_image_tag @motorcycle.photo.key, height: 300, width: 400, crop: :fill %>
-      </li>
 
-    </ul>
+      <div>
+        <h1 class="title">
+          <%= @motorcycle.title %>
+        </h1><br>
 
-</div>
+        <ul>
 
-<div>
+          <li>
+            <%= @motorcycle.capacity %>
+          </li>
+          <li>
+            <%= @motorcycle.category %>
+          </li>
+          <li>
+            <%= @motorcycle.description %>
+          </li>
+          <li>
+            <%= @motorcycle.price %>
+          </li>
 
-    <%= link_to "Edit ✍🏼", edit_motorcycle_path(@motorcycle) %><br>
-    <%= link_to "Retourner au Menu 🔙", root_path %><br>
+        </ul>
+      </div>
 
-    <%= link_to "Delete this motorcycle 🗑️", motorcycle_path(@motorcycle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this motorcycle?" } %>
+  </div>
 
-</div>
+  <div>
+
+      <%= link_to "Edit ✍🏼", edit_motorcycle_path(@motorcycle) %><br>
+      <%= link_to "Retourner au Menu 🔙", root_path %><br>
+
+      <%= link_to "Delete this motorcycle 🗑️", motorcycle_path(@motorcycle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this motorcycle?" } %>
+
+  </div>
