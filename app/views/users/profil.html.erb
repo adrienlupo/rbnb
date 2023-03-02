@@ -1,0 +1,12 @@
+
+<% current_user.motorcycles.each do |motorcycle| %>
+  <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
+    <div class="card" style="width: 350px;">
+      <%= cl_image_tag motorcycle.photo.key %>
+      <h1><%= motorcycle.title %></h1>
+      <p>Catégorie: <%= motorcycle.category %></p>
+      <p>Cylindrée<%= motorcycle.capacity %></p>
+      <p>Prix à la journée: <%= motorcycle.price %> €</p>
+    </div>
+  <%end%>
+<% end %>

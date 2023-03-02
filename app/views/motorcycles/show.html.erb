@@ -27,16 +27,6 @@
         </ul>
       </div>
 
-      <div>
-      <h3>Reserver cette moto</h3>
-      <%= simple_form_for [@motorcycle, @booking] do |f| %>
-      <%= f.input :start_date, as: :date  %>
-      <%= f.input :end_date, as: :date  %>
-      <%= f.button :submit %>
-      <% end %>
-      </div>
-
-
   </div>
 
   <div class='bottom' class='button-md'>
