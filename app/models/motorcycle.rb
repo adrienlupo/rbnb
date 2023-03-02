@@ -4,6 +4,8 @@ class Motorcycle < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  has_many :bookings
+
   validates :title, presence: true
   validates :capacity, presence: true
   validates :category, presence: true

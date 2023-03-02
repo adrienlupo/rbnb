@@ -12,10 +12,6 @@ class MotorcyclesController < ApplicationController
     end
   end
 
-  def new
-    @motorcycle = Motorcycle.new
-  end
-
   def create
     @motorcycle = Motorcycle.new(motorcycle_params)
     @motorcycle.user = current_user
@@ -30,7 +26,13 @@ class MotorcyclesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @booking = Booking.new
+  end
+
+  def new
+    @motorcycle = Motorcycle.new
+  end
 
   def destroy
     @motorcycle.destroy
