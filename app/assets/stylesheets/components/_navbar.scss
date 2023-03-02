@@ -16,14 +16,16 @@
 
 .navbar-list {
   display: flex;
-  flex-direction: row ;
+  flex-direction: row;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 30px;
   p {
-    margin-bottom: 0px;
+      margin-bottom: 0px;
+      padding-right: 14px;
+      padding-left: 10px;
   }
   input {
-   border-radius: 10px;
+   border-radius: 15px;
   }
 }
 
