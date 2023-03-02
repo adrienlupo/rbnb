@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.owner_id = @booking.motorcycle.user
     if @booking.save
-      redirect_to motorcycle_path(@motorcycle)
+      redirect_to motorcycle_booking_path(@motorcycle, @booking)
     else
       render :new, status: :unprocessable_entity
     end
