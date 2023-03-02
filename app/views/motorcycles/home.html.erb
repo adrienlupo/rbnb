@@ -4,7 +4,9 @@
           <% @motorcycles.each do |motorcycle| %>
             <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
               <div class="card" style="width: 350px;">
+                <% if motorcycle.photo.attached? %>
                 <%= cl_image_tag motorcycle.photo.key %>
+                <% end %>
                 <h1><%= motorcycle.title %></h1>
                 <p>Catégorie: <%= motorcycle.category %></p>
                 <p>Cylindrée<%= motorcycle.capacity %></p>
