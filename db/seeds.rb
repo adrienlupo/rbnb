@@ -28,7 +28,6 @@ User.create(email: 'test@gmail.com', password: "1234567", password_confirmation:
 
 # "----"
 
-
 # def api_key
 #   ENV["API_KEY"]
 # end
@@ -37,7 +36,7 @@ puts "Getting Motorcycles Data"
 
 def motorcycles_dataset
   motorcycles_db = []
-  motorcycles_dataset = RestClient.get('https://api.api-ninjas.com/v1/motorcycles?make=kawasaki&model=ninja', headers={ 'X-Api-Key': 'UNVh/gYhvoXLpgbN94xaCQ==np4Bo2M2Y7ghXjde' })
+  motorcycles_dataset = RestClient.get('https://api.api-ninjas.com/v1/motorcycles?make=kawasaki&model=ninja', headers={ 'X-Api-Key': ENV["API_KEY"] })
 end
 
 motorcycles_array = JSON.parse(motorcycles_dataset)
