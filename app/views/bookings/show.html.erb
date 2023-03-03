@@ -11,3 +11,78 @@
     Updated Just Now !
   </div>
 </div>
+
+<div class='container' style="max-width: 510px">
+
+  <h1>Récap de votre commande</h1>
+
+    <%# APPLIQUE STYLE CARD %>
+    <div class="main-image card" >
+
+      <%# GROSSE IMAGE %>
+      <div class="card-body" style="justify-content-center" pb-0>
+        <% if @booking.motorcycle.photo.attached? %>
+          <%= cl_image_tag @booking.motorcycle.photo.key, height: 450, width: 450, crop: :fill %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <%# STYLE CARD %>
+    <div class="card " style="height: 100%">
+
+      <%# DIV BLOC DU HAUT%>
+      <div class="upper-title-logos-description">
+
+        <%# DIV TITLE%>
+        <div class="card-title">
+          <h1><%= @booking.motorcycle.title %></h1>
+        </div>
+
+        <%# DIV AVEC SPECIFICATIONS TECHNIQUES %>
+        <div class="specification-columns d-flex flex-row justify-content-between mt-3" style="margin:0px">
+
+          <div class="specification-card">
+            <p class="specification-title">
+              Cylindrée:
+            </p>
+
+            <p>
+              <%= @booking.motorcycle.capacity %>
+            </p>
+          </div>
+
+          <div class="specification-card">
+            <p class="specification-title">
+              Catégorie:
+            </p>
+
+            <p>
+              <%= @booking.motorcycle.category %>
+            </p>
+          </div>
+
+          <div class="specification-card">
+            <p class="specification-title">
+              Prix à la journée:
+            </p>
+
+            <p>
+              <%= @booking.motorcycle.price %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          <%# DIV AVEC LE TEXTE DESCRIPTIF %>
+    <div class="description-text" style="margin-top:16px">
+      <h3>
+        Description
+      </h3>
+        <p>
+          <%= @booking.motorcycle.description %>
+        </p>
+    </div>
+  </div>
+</div>

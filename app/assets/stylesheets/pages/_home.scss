@@ -2,12 +2,14 @@
 
 .main-container {
   display: flex;
+  background: #D2C4AE;
 }
 
 #cartographie {
   position: sticky;
   top: 0;
   margin: 16px ;
+
   img {
     flex-grow: 1;
   width: 100%;
@@ -20,6 +22,7 @@
   grid-gap: 16px;
   padding: 16px;
   width: 100%;
+  background: #D2C4AE;
 }
 
 .link {

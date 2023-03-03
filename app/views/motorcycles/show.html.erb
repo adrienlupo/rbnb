@@ -1,48 +1,50 @@
 <%# CLASSE GENERALE DE LA SHOW  %>
 <div class='container style-carte-show '>
 
-
   <div class="d-flex flex-row">
-
     <%# PARTIE GAUCHE  %>
+
     <div class="left-image col-sm-6 mb-3 mb-sm-0 d-flex flex-column">
 
       <%# APPLIQUE STYLE CARD %>
       <div class="main-image card ">
 
-
         <%# GROSSE IMAGE %>
         <div class="card-body pb-0">
-        <% if @motorcycle.photo.attached? %>
-          <%= cl_image_tag @motorcycle.photo.key, height: 450, width: 450, crop: :fill, class: 'img' %>
+          <% if @motorcycle.photo.attached? %>
+            <%= cl_image_tag @motorcycle.photo.key, height: 450, width: 450, crop: :fill, class: 'img' %>
           <% end %>
         </div>
 
         <%# PETITES IMAGES EN DESSOUS %>
         <div class="thumbnail-card d-flex flex-row justify-content-between">
           <div class="thumbnail">
-           <% if @motorcycle.photo.attached? %>
-            <%= cl_image_tag @motorcycle.photo.key, crop: :fill, class: 'img-thumbnail' %>
+            <% if @motorcycle.photo.attached? %>
+              <%= cl_image_tag @motorcycle.photo.key, crop: :fill, class: 'img-thumbnail' %>
             <% end %>
-          </div>
-          <div class="thumbnail">
-           <% if @motorcycle.photo.attached? %>
-            <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
-            <% end %>
-          </div>
-          <div class="thumbnail">
-           <% if @motorcycle.photo.attached? %>
-          <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
-          <% end %>
-          </div>
-          <div class="thumbnail">
-           <% if @motorcycle.photo.attached? %>
-          <%= cl_image_tag @motorcycle.photo.key,  crop: :fill , class: 'img-thumbnail'%>
-          <% end %>
           </div>
 
+          <div class="thumbnail">
+            <% if @motorcycle.photo.attached? %>
+              <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
+            <% end %>
+          </div>
+
+          <div class="thumbnail">
+            <% if @motorcycle.photo.attached? %>
+              <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
+            <% end %>
+          </div>
+
+          <div class="thumbnail">
+            <% if @motorcycle.photo.attached? %>
+              <%= cl_image_tag @motorcycle.photo.key,  crop: :fill , class: 'img-thumbnail'%>
+            <% end %>
+          </div>
         </div>
+
       </div>
+
     </div>
 
 
@@ -69,7 +71,9 @@
             <div class="specification-columns d-flex flex-row justify-content-between mt-3" style="margin:0px">
 
               <div class="specification-card">
-                <p class="specification-title">Cylindrée:</p>
+                <p class="specification-title">
+                  Cylindrée:
+                </p>
 
                 <p>
                   <%= @motorcycle.capacity %>
@@ -77,87 +81,73 @@
               </div>
 
               <div class="specification-card">
-                <p class="specification-title">Catégorie:</p>
+                <p class="specification-title">
+                  Catégorie:
+                </p>
+
                 <p>
                   <%= @motorcycle.category %>
                 </p>
               </div>
 
               <div class="specification-card">
-                <p class="specification-title">Prix à la journée:</p>
+                <p class="specification-title">
+                  Prix à la journée:
+                </p>
+
                 <p>
                   <%= @motorcycle.price %>
                 </p>
               </div>
-
             </div>
 
 
             <%# DIV AVEC LE TEXTE DESCRIPTIF %>
             <div class="description-text" style="margin-top:16px">
               <h3>
-              Description
+                Description
               </h3>
-              <p>
-              <%= @motorcycle.description %>
-              </p>
-               <div>
-    <%= simple_form_for ([@motorcycle, @booking]) do |f| %>
-      <%= f.input :start_date, as: :date %>
-      <%= f.input :end_date, as: :date %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
+                <p>
+                  <%= @motorcycle.description %>
+                </p>
             </div>
+          </div>
 
 
+            <%# DIV BLOC DU BAS: DATE ET BOUTON LOUER %>
+            <%= simple_form_for ([@motorcycle, @booking]) do |f| %>
+              <div class="bottom-buttons-renting">
+                <%# DIV AVEC LE FORMULAIRE DES DATES %>
+                <div class="thumbnail-card d-flex flex-row justify-content-between" style="margin-top:16px; margin-bottom:16px; border:1px solid grey " >
+                    <div class="btn-outline-secondary">
+                      <p class="text-muted" style='margin:0'> Date de début</p>
+                      <%= f.input :start_date, as: :date, html5: true, label: false%>
+                      <%# <input type="date" name ="start_date" class="form-control" > %>
+                    </div>
+
+                    <div class="btn-outline-secondary">
+                      <p class="text-muted" style='margin:0'>Date de fin</p>
+                      <%# <input type="date" name="end_date"class="form-control"> %>
+                      <%= f.input :end_date, as: :date, html5: true, label: false %>
+                    </div>
+                </div>
 
 
-
-
-              <%# TROIS BOUTTONS AVEC LE MËME PADDING QUE LES THUMBNAIL %>
-              <%# JE COMPRENS PAS CE QUE CES BOUTONS FONT LA NIVEAU UI
-              JE LES AI GARDE AU CHAUD DANS LEUR DIV MAIS FAUT LES VIRER%>
-
-            <div class="d-flex flex-row justify-content-between">
-
-              <%= link_to "Edit ✍🏼", edit_motorcycle_path(@motorcycle), class: 'btn btn-outline-secondary' %>
-
-              <%= link_to "Retourner au Menu 🔙", root_path, class: 'btn btn-outline-secondary' %>
-
-              <%= link_to "Delete this motorcycle 🗑️", motorcycle_path(@motorcycle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this motorcycle?" }, class: 'btn btn-outline-secondary' %>
-            </div>
+                <%# GROS BOUTTON AVEC LE MËME PADDING QUE LES THUMBNAIL %>
+                <div class="d-flex flex-row w-100">
+                  <%= f.button :submit, input_html: { class: "d-flex flex-row w-100" }, class: 'btn btn-outline-secondary btn-block w-100' %>
+                </div>
+              </div>
+            <% end %>
 
           </div>
 
-
-          <%# DIV BLOC DU BAS: DATE ET BOUTON LOUER %>
-          <div class="bottom-buttons-renting">
-            <%# DIV AVEC LE FORMULAIRE DES DATES %>
-
-            <div class="thumbnail-card d-flex flex-row justify-content-between" style="margin-top:16px; margin-bottom:16px; border:1px solid grey " >
-
-                <div class="btn-outline-secondary">
-                  <p class="text-muted" style='margin:0'> Date de début</p>
-                  <input type="date" class="form-control" >
-                </div>
-
-                <div class="btn-outline-secondary">
-                  <p class="text-muted" style='margin:0'>Date de fin</p>
-                  <input type="date" class="form-control">
-                </div>
-            </div>
-
-
-            <%# GROS BOUTTON AVEC LE MËME PADDING QUE LES THUMBNAIL %>
-            <div class="d-flex flex-row w-100">
-
-              <%= link_to "Louer cette moto ", edit_motorcycle_path(@motorcycle), class: 'btn btn-outline-secondary btn-block w-100' %>
-
-            </div>
-          </div>
+        </div>
 
       </div>
-     </div>
+
+    </div>
+
   </div>
+
 </div>
