@@ -2,7 +2,7 @@
 <h1>My Bookings</h1>
 
 <% @bookings.each do |booking| %>
-  <%= link_to motorcycle_path(booking), class: 'link' do %>
+  <%= link_to booking_path(booking), class: 'link' do %>
     <div class="card" style="width: 350px;">
       <%= cl_image_tag booking.motorcycle.photo.key %>
       <h1><%= booking.motorcycle.title %></h1>
