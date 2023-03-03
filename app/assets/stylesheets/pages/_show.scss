@@ -6,25 +6,31 @@
   border-radius: 8px;
 }
 
-.container {
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 80px;
+
+.style-carte-show {
+  margin-top: 16px;
+  max-width: 1000px;
+  max-height: 700px;
   ul {
-    list-style: none;
-  }
+      list-style: none;
+     }
+}
+
+.thumbnail-card {
+  padding: 16px
+}
+
+.img-thumbnail {
+  width: 100px;
+  height: 100px;
+  padding: 0; // overwrite de la classe img-thumbnail
+
+}
+
+.specification-title {
+  margin: Opx ;
 }
 
 .img {
-  border-radius: 8px;
-  box-shadow:8px 8px 10px 0 rgba(0,0,0,0.5);
-}
-
-.bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 100px;
-  margin-right: 100px;
+  width: 100%;
 }

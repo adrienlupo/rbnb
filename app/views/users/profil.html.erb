@@ -1,0 +1,27 @@
+
+<h1>My Bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <%= link_to booking_path(booking), class: 'link' do %>
+    <div class="card" style="width: 350px;">
+      <%= cl_image_tag booking.motorcycle.photo.key %>
+      <h1><%= booking.motorcycle.title %></h1>
+      <p>Owner of the bike <%= booking.motorcycle.user.first_name %></p>
+      <p>Date of booking <%= "#{booking.start_date} - #{booking.end_date}"  %></p>
+    </div>
+  <%end%>
+<% end %>
+
+<h1>My Motorcycles</h1>
+
+<% @owned_motorcycles.each do |motorcycle| %>
+  <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
+    <div class="card" style="width: 350px;">
+      <%= cl_image_tag motorcycle.photo.key %>
+      <h1><%= motorcycle.title %></h1>
+      <p>Catégorie: <%= motorcycle.category %></p>
+      <p>Cylindrée<%= motorcycle.capacity %></p>
+      <p>Prix à la journée: <%= motorcycle.price %> €</p>
+    </div>
+  <%end%>
+<% end %>
