@@ -1,38 +1,83 @@
+<%# CLASSE GENERALE MAIN CONTAINER  %>
+
+  <div class="main-container justify-content-center">
+
+    <%# DIV PARTIE GAUCHE  %>
+    <div class="col-12 col-lg-8">
 
 
-<div class="main-container">
-
-
-  <div class="row justify-content-center">
-
-    <div class="col-12 col-lg-6">
       <div class="cards">
         <% @motorcycles.each do |motorcycle| %>
           <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
-            <div class="card">
-            <% if motorcycle.photo.attached? %>
-              <%= cl_image_tag motorcycle.photo.key %>
-              <% end %>
-              <h1><%= motorcycle.title %></h1>
-              <p>Catégorie: <%= motorcycle.category %></p>
-              <p>Cylindrée: <%= motorcycle.capacity %></p>
-              <p>Prix à la journée: <%= motorcycle.price %> €</p>
+
+
+            <%# DIV PARTIE GAUCHE  %>
+            <div class="card" style="width: 18rem;">
+
+
+              <%# DIV IMAGE  %>
+              <div class="preview-main-image">
+                <div class="card">
+                  <% if motorcycle.photo.attached? %>
+                    <%= cl_image_tag motorcycle.photo.key, crop: :fill, class: 'img-for-home'%>
+                  <% end %>
+                </div>
+              </div>
+
+
+              <%# DIV TEXTE  %>
+              <div class="preview-text-layout m-3">
+                <div class="motorcycle-title">
+                  <h1><%= motorcycle.title %></h1>
+                </div>
+
+                <div class="specifications">
+
+                  <%# DIV AVEC SPECIFICATIONS TECHNIQUES %>
+                  <div class="specification-columns d-flex flex-row justify-content-between mt-3" style="margin:0px">
+
+                    <div class="specification-card">
+                      <p class="specification-title">Cylindrée:</p>
+
+                      <p>
+                        <%= motorcycle.capacity %>
+                      </p>
+                    </div>
+
+                    <div class="specification-card">
+                      <p class="specification-title">Catégorie:</p>
+                      <p>
+                        <%= motorcycle.category %>
+                      </p>
+                    </div>
+
+                    <div class="specification-card">
+                      <p class="specification-title">Prix/journée:</p>
+                      <p>
+                        <%= motorcycle.price %>
+                      </p>
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
             </div>
+
           <%end%>
         <% end %>
       </div>
     </div>
 
-    <div class="col-12 col-lg-3">
-      <div id="map">
-          <img class="contain" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/PLAN_PINET_1890.jpg" alt="carte">
+
+
+    <%# DIV PARTIE DROITE CARTO  %>
+    <div class="col-12 col-lg-4">
+      <div id="cartographie">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/PLAN_PINET_1890.jpg" alt="carte" >
       </div>
 
     </div>
 
   </div>
-
-</div>
-
-
-

@@ -5,11 +5,15 @@
   background: #D2C4AE;
 }
 
-#map {
+#cartographie {
   position: sticky;
   top: 0;
   margin: 16px ;
 
+  img {
+    flex-grow: 1;
+  width: 140%;
+  }
 }
 
 .cards {
@@ -25,6 +29,19 @@
   text-decoration: none;
 }
 
+.img-for-home {
+
+  max-width: 100%;
+}
+
+
+.specification-title {
+
+  font-size: 14px;
+  color: grey;
+}
+
+
 /*Media Queries*/
 
 /*Smallest device*/
@@ -32,7 +49,7 @@
   .cards {
     grid-template-columns: 1fr;
   }
-  #map {
+  #cartographie {
     width: 100%;
   }
 }
@@ -42,7 +59,7 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
-  #map {
+  #cartographie {
     width: 100%;
   }
 }
@@ -52,7 +69,7 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  #map {
+  #cartographie {
     display: block;
   }
 }
