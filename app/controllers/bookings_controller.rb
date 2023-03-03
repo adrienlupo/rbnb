@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_motorcycle, only: %i[new create]
 
   def show
-    @booking = Booking.new
+    @booking = Booking.find(params[:id])
   end
 
   def create
