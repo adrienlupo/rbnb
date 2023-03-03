@@ -2,12 +2,14 @@
 
 .main-container {
   display: flex;
+  background: #D2C4AE;
 }
 
 #map {
   position: sticky;
   top: 0;
   margin: 16px ;
+
 }
 
 .cards {
@@ -16,6 +18,7 @@
   grid-gap: 16px;
   padding: 16px;
   width: 100%;
+  background: #D2C4AE;
 }
 
 .link {
