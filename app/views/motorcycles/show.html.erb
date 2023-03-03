@@ -19,21 +19,21 @@
         <%# PETITES IMAGES EN DESSOUS %>
         <div class="thumbnail-card d-flex flex-row justify-content-between">
           <div class="thumbnail">
-           <% if @motorcycle.photo.attached? %>
-            <%= cl_image_tag @motorcycle.photo.key, crop: :fill, class: 'img-thumbnail' %>
+            <% if @motorcycle.photo.attached? %>
+              <%= cl_image_tag @motorcycle.photo.key, crop: :fill, class: 'img-thumbnail' %>
             <% end %>
           </div>
 
           <div class="thumbnail">
-           <% if @motorcycle.photo.attached? %>
-            <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
+            <% if @motorcycle.photo.attached? %>
+              <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
             <% end %>
           </div>
 
           <div class="thumbnail">
-           <% if @motorcycle.photo.attached? %>
-          <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
-          <% end %>
+            <% if @motorcycle.photo.attached? %>
+              <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
+            <% end %>
           </div>
 
           <div class="thumbnail">
@@ -41,7 +41,6 @@
               <%= cl_image_tag @motorcycle.photo.key,  crop: :fill , class: 'img-thumbnail'%>
             <% end %>
           </div>
-
         </div>
 
       </div>
@@ -141,7 +140,6 @@
               <div class="d-flex flex-row w-100">
                 <%= link_to "Louer cette moto ", edit_motorcycle_path(@motorcycle), class: 'btn btn-outline-secondary btn-block w-100' %>
               </div>
-
             </div>
 
           </div>
