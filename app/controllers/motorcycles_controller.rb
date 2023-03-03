@@ -4,12 +4,12 @@ class MotorcyclesController < ApplicationController
 
   def home
     @motorcycles = Motorcycle.all
-    @markers = @motorcycles.geocoded.map do |moto|
-      {
-        lat: moto.latitude,
-        lng: moto.longitude
-      }
-    end
+    # @markers = @motorcycles.geocoded.map do |moto|
+    #   {
+    #     lat: moto.latitude,
+    #     lng: moto.longitude
+    #   }
+    # end
   end
 
   def create
