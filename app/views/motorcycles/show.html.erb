@@ -1,6 +1,7 @@
 <%# CLASSE GENERALE DE LA SHOW  %>
 <div class='container style-carte-show '>
 
+
   <div class="d-flex flex-row">
 
     <%# PARTIE GAUCHE  %>
@@ -9,29 +10,41 @@
       <%# APPLIQUE STYLE CARD %>
       <div class="main-image card ">
 
+
         <%# GROSSE IMAGE %>
         <div class="card-body pb-0">
+        <% if @motorcycle.photo.attached? %>
           <%= cl_image_tag @motorcycle.photo.key, height: 450, width: 450, crop: :fill, class: 'img' %>
+          <% end %>
         </div>
 
         <%# PETITES IMAGES EN DESSOUS %>
         <div class="thumbnail-card d-flex flex-row justify-content-between">
           <div class="thumbnail">
+           <% if @motorcycle.photo.attached? %>
             <%= cl_image_tag @motorcycle.photo.key, crop: :fill, class: 'img-thumbnail' %>
+            <% end %>
           </div>
           <div class="thumbnail">
+           <% if @motorcycle.photo.attached? %>
             <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
+            <% end %>
           </div>
           <div class="thumbnail">
+           <% if @motorcycle.photo.attached? %>
           <%= cl_image_tag @motorcycle.photo.key, crop: :fill , class: 'img-thumbnail'%>
+          <% end %>
           </div>
           <div class="thumbnail">
+           <% if @motorcycle.photo.attached? %>
           <%= cl_image_tag @motorcycle.photo.key,  crop: :fill , class: 'img-thumbnail'%>
+          <% end %>
           </div>
 
         </div>
       </div>
     </div>
+
 
 
     <%# PARTIE DROITE %>
@@ -88,7 +101,18 @@
               <p>
               <%= @motorcycle.description %>
               </p>
+               <div>
+    <%= simple_form_for ([@motorcycle, @booking]) do |f| %>
+      <%= f.input :start_date, as: :date %>
+      <%= f.input :end_date, as: :date %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
             </div>
+
+
+
+
 
 
               <%# TROIS BOUTTONS AVEC LE MËME PADDING QUE LES THUMBNAIL %>

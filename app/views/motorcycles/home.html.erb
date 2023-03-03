@@ -1,4 +1,5 @@
 
+
 <div class="main-container">
 
 
@@ -9,7 +10,9 @@
         <% @motorcycles.each do |motorcycle| %>
           <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
             <div class="card">
+            <% if motorcycle.photo.attached? %>
               <%= cl_image_tag motorcycle.photo.key %>
+              <% end %>
               <h1><%= motorcycle.title %></h1>
               <p>Catégorie: <%= motorcycle.category %></p>
               <p>Cylindrée: <%= motorcycle.capacity %></p>
@@ -24,6 +27,7 @@
       <div id="map">
           <img class="contain" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/PLAN_PINET_1890.jpg" alt="carte">
       </div>
+
     </div>
 
   </div>
