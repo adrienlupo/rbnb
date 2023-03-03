@@ -1,18 +1,38 @@
 
-    <div class="main-container">
-        <div class="cards">
-          <% @motorcycles.each do |motorcycle| %>
-            <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
-              <div class="card" style="width: 350px;">
-                <% if motorcycle.photo.attached? %>
-                <%= cl_image_tag motorcycle.photo.key %>
-                <% end %>
-                <h1><%= motorcycle.title %></h1>
-                <p>Catégorie: <%= motorcycle.category %></p>
-                <p>Cylindrée<%= motorcycle.capacity %></p>
-                <p>Prix à la journée: <%= motorcycle.price %> €</p>
-              </div>
-            <%end%>
-          <% end %>
-        </div>
+
+<div class="main-container">
+
+
+  <div class="row justify-content-center">
+
+    <div class="col-12 col-lg-6">
+      <div class="cards">
+        <% @motorcycles.each do |motorcycle| %>
+          <%= link_to motorcycle_path(motorcycle), class: 'link' do %>
+            <div class="card">
+            <% if motorcycle.photo.attached? %>
+              <%= cl_image_tag motorcycle.photo.key %>
+              <% end %>
+              <h1><%= motorcycle.title %></h1>
+              <p>Catégorie: <%= motorcycle.category %></p>
+              <p>Cylindrée: <%= motorcycle.capacity %></p>
+              <p>Prix à la journée: <%= motorcycle.price %> €</p>
+            </div>
+          <%end%>
+        <% end %>
+      </div>
     </div>
+
+    <div class="col-12 col-lg-3">
+      <div id="map">
+          <img class="contain" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/PLAN_PINET_1890.jpg" alt="carte">
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
