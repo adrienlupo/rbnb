@@ -13,45 +13,82 @@ User.destroy_all
 
 User.create(email: 'test@gmail.com', password: "1234567", password_confirmation: "1234567")
 
-
-# 30.times do
-#   Motorcycle.create!(
-#     title: Faker::Vehicle.version,
-#     user: User.all.first,
-#     capacity: Faker::Number.number(digits: 3),
-#     category: Faker::Vehicle.fuel_type,
-#     description: Faker::Lorem.paragraph(sentence_count: 8),
-#     moto_picture_url: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Norton_Motorcycle.jpg",
-#     price: Faker::Number.between(from: 59, to: 250)
-#   )
-# end
-
-# "----"
-
-
-# def api_key
-#   ENV["API_KEY"]
-# end
-
 puts "Getting Motorcycles Data"
 
-def motorcycles_dataset
-  motorcycles_db = []
-  motorcycles_dataset = RestClient.get('https://api.api-ninjas.com/v1/motorcycles?make=kawasaki&model=ninja', headers={ 'X-Api-Key': 'UNVh/gYhvoXLpgbN94xaCQ==np4Bo2M2Y7ghXjde' })
-end
-
-motorcycles_array = JSON.parse(motorcycles_dataset)
-
-motorcycles_array.each do |motorcycle|
-  moto = Motorcycle.create!(
-    title: "#{motorcycle['make']} - #{motorcycle['model']}",
+  moto1 = Motorcycle.new(
+    title: "bking marseillais",
     user: User.all.first,
-    capacity: motorcycle["displacement"].to_i,
-    category: motorcycle["type"],
+    capacity: "1340cm3",
+    category: "road",
     description: Faker::Lorem.paragraph(sentence_count: 8),
-    price: Faker::Number.between(from: 59, to: 250),
     available_dates: Faker::Date.in_date_period,
-    address: "21 Rue Haxo, Marseille"
+    address: "10 Rue Haxo, Marseille",
+    price: 298
   )
-  moto.photo.attach(io: File.open('./db/seed_pictures/pic1.jpg'), filename: 'pic1.jpg', content_type: 'image/jpg')
-end
+  moto1.photo.attach(io: File.open('./db/seed_pictures/pic1.jpg'), filename: 'pic1.jpg', content_type: 'image/jpg')
+  moto1.save!
+
+  moto2 = Motorcycle.new(
+  title: "Gsx",
+  user: User.all.first,
+  capacity: "1400cm3",
+  category: "road",
+  description: Faker::Lorem.paragraph(sentence_count: 8),
+  available_dates: Faker::Date.in_date_period,
+  address: "11 Rue Haxo, Marseille",
+  price: 190
+)
+  moto2.photo.attach(io: File.open('./db/seed_pictures/pic2.jpg'), filename: 'pic2.jpg', content_type: 'image/jpg')
+  moto2.save!
+
+  moto3 = Motorcycle.new(
+  title: "Gs",
+  user: User.all.first,
+  capacity: "500cm3",
+  category: "road",
+  description: Faker::Lorem.paragraph(sentence_count: 8),
+  available_dates: Faker::Date.in_date_period,
+  address: "12 Rue Haxo, Marseille",
+  price: 90
+)
+moto3.photo.attach(io: File.open('./db/seed_pictures/pic3.jpg'), filename: 'pic3.jpg', content_type: 'image/jpg')
+moto3.save!
+
+moto4 = Motorcycle.new(
+  title: "R1",
+  user: User.all.first,
+  capacity: "1000cm3",
+  category: "sport",
+  description: Faker::Lorem.paragraph(sentence_count: 8),
+  available_dates: Faker::Date.in_date_period,
+  address: "13 Rue Haxo, Marseille",
+  price: 200
+)
+moto4.photo.attach(io: File.open('./db/seed_pictures/pic4.jpg'), filename: 'pic4.jpg', content_type: 'image/jpg')
+moto4.save!
+
+moto5 = Motorcycle.new(
+  title: "S1000RR ",
+  user: User.all.first,
+  capacity: "1340cm3",
+  category: "sport",
+  description: Faker::Lorem.paragraph(sentence_count: 8),
+  available_dates: Faker::Date.in_date_period,
+  address: "14 Rue Haxo, Marseille",
+  price: 250
+)
+moto5.photo.attach(io: File.open('./db/seed_pictures/pic5.jpg'), filename: 'pic5.jpg', content_type: 'image/jpg')
+moto5.save!
+
+moto6 = Motorcycle.new(
+  title: "KL",
+  user: User.all.first,
+  capacity: "650cm3",
+  category: "trail",
+  description: Faker::Lorem.paragraph(sentence_count: 8),
+  available_dates: Faker::Date.in_date_period,
+  address: "15 Rue Haxo, Marseille",
+  price: 80
+)
+moto6.photo.attach(io: File.open('./db/seed_pictures/pic6.jpg'), filename: 'pic6.jpg', content_type: 'image/jpg')
+moto6.save!
