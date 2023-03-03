@@ -1,8 +1,9 @@
- <div class="container py-5 new-margin-top">
+ <div class="container mt-3" style="max-width: 800px">
   <div class="row">
     <div class="">
       <div class="bg-white rounded p-3 shadow">
         <h3>Ajoutez votre moto</h3>
+
         <%= simple_form_for @motorcycle do |f| %>
           <%= f.input :title, placeholder: 'Titre de votre annonce' %>
           <%= f.input :description, placeholder: 'Description de votre annonce' %>
@@ -13,6 +14,8 @@
           <%= f.input :photo, as: :file %>
           <%= f.submit class: 'btn btn-primary' %>
         <% end %>
+
+      
           <div>
         <%= link_to "Back to home", root_path %>
         </div>

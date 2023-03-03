@@ -116,9 +116,12 @@
 
             <%# DIV BLOC DU BAS: DATE ET BOUTON LOUER %>
             <%= simple_form_for ([@motorcycle, @booking]) do |f| %>
-              <div class="bottom-buttons-renting">
+
+
+
                 <%# DIV AVEC LE FORMULAIRE DES DATES %>
                 <div class="thumbnail-card d-flex flex-row justify-content-between" style="margin-top:16px; margin-bottom:16px; border:1px solid grey " >
+
                     <div class="btn-outline-secondary">
                       <p class="text-muted" style='margin:0'> Date de début</p>
                       <%= f.input :start_date, as: :date, html5: true, label: false%>
@@ -135,9 +138,10 @@
 
                 <%# GROS BOUTTON AVEC LE MËME PADDING QUE LES THUMBNAIL %>
                 <div class="d-flex flex-row w-100">
-                  <%= f.button :submit, input_html: { class: "d-flex flex-row w-100" }, class: 'btn btn-outline-secondary btn-block w-100' %>
+                  <%= f.button :submit, input_html: { class: "d-flex flex-row w-100" }, class: 'btn btn-outline-secondary btn-block w-100', style: 'margin:0' %>
                 </div>
-              </div>
+
+
             <% end %>
 
           </div>
